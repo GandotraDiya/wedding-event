@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/public",
+  "outputDirectory": "dist",
   "routes": [
     {
       "src": "/assets/.*",
@@ -9,7 +9,13 @@
       }
     },
     {
-      "src": "/(?!assets/).*",
+      "src": "/images/.*",
+      "headers": {
+        "cache-control": "public, max-age=604800"
+      }
+    },
+    {
+      "src": "/(?!assets/|images/).*",
       "dest": "/index.html"
     }
   ]
